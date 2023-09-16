@@ -1,8 +1,8 @@
 for diary entry:
 may have to parse individual sentences and analyze sentiment for each, then one song for each sentence?
-(yes!) --> alternatively one long entry, and then a lot of songs that fit the same profile
+(yes!) --> alternatively, one long entry, and then a lot of songs that fit the same profile
 
-output from cohere mood training file: three-letter code to represent the emotion:
+(yes!) output from cohere mood training file: three-letter code to represent the emotion:
 hap = happy
 hyp = hyped
 sad = sad
@@ -46,3 +46,4 @@ neutral :
     target_loudness,
     target_energy
 
+and ideally spotify will make the playlist there based on those attributes
