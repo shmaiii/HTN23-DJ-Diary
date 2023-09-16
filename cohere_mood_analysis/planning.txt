@@ -46,7 +46,5 @@ neutral :
     0.5 target_loudness,
     0.5 target_energy
 
-for all these: if max, then 
-
 
 and ideally spotify will make the playlist there based on those attributes
