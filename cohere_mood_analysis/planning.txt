@@ -17,33 +17,36 @@ min/max/target loudness
 min/max/target valence (valence = positiveness!!)
 
 happy : 
-    min_valence,
-    min_energy,
-    min_danceability
+    0.8 min_valence,
+    0.8 min_energy,
+    0.7 min_danceability
 
 hyped :
-    min_valence,
-    min_danceability,
-    min_loudness,
-    min_energy
+    0.85 min_valence,
+    0.85 min_danceability,
+    0.7 min_loudness,
+    0.85 min_energy
 
 sad :
-    max_valence,
-    max_danceability
+    0.25 max_valence,
+    0.3 max_danceability
 
 angry :
-    max_valence,
-    min_loudness,
-    min_energy
+    0.4 max_valence,
+    0.6 min_loudness,
+    0.5 min_energy
 
 tired :
-    max_valence,
-    max_energy,
-    max_loudness
+    0.4 max_valence,
+    0.25 max_energy,
+    0.4 max_loudness
 
 neutral :
-    target_danceability,
-    target_loudness,
-    target_energy
+    0.5 target_danceability,
+    0.5 target_loudness,
+    0.5 target_energy
+
+for all these: if max, then 
+
 
 and ideally spotify will make the playlist there based on those attributes
