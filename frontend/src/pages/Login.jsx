@@ -56,7 +56,7 @@ export const Login = () => {
                 value={pass}  // Make the input controlled
                 onChange={(e) => setPass(e.target.value)}
             />
-      <button type="submit">Log In</button>
+      <button type="submit">Login with Spotify</button>
     </form>
   );
 };

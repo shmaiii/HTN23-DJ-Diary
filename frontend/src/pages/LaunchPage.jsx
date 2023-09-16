@@ -6,13 +6,13 @@ export const LaunchPage = () => {
 
   const handleLoginClick = () => {
     // Navigate to the '/login' route when the button is clicked
-    navigate('/login');
+    navigate('/userProfile');
   };
 
   return (
     <div>
       <h1>Launch Page</h1>
-      <button onClick={handleLoginClick}>Log In</button>
+      <button onClick={handleLoginClick}>Login with Spotify</button>
     </div>
   );
 };
