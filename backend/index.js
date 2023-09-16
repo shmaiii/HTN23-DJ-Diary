@@ -1,6 +1,8 @@
-const express = require('express')
-const cors = require('cors'); 
-const request = require('request'); // "Request" library
+import express from 'express'
+import cors from 'cors'; 
+import request from 'request'; // "Request" library
+import { classifyJournal } from './cohere.js';
+
 
 const app = express();
 app.use(express.json());
@@ -9,6 +11,25 @@ app.use(cors());
 app.get('/', (request, response) => {
     response.send('<h1>Hello World!</h1>')
   })
+
+  app.post('/api/createJournal/', async (req, res) => {
+    try {
+
+        const body = req.body.journal;
+        const classificationResult = await classifyJournal(body);
+        console.log(classificationResult)
+        const label = classificationResult.prediction
+        console.log(label)
+
+        // SAVE IT TO DB?? 
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({
+            message: 'Prolly something wrong with cohere',
+            error: err
+        })
+    }
+})
 
   // hard coded credentials
 var client_id = '405cb5e4d9194595b89aba03e8e134ab'; // Your client id
@@ -44,6 +65,7 @@ request.post(authOptions, function(error, response, body) {
     console.log(token);
   }
 });
+
 
 
 
