@@ -19,7 +19,11 @@ export const UserProfile = () => {
       redirectToAuthCodeFlow(clientId);
     } else {
       try {
-        const accessToken = await getAccessToken(clientId, code);
+        let accessToken = localStorage.getItem("accessToken")
+        if (accessToken === null) {
+            accessToken = await getAccessToken(clientId, code);
+        } else { 
+            accessToken = localStorage.getItem("accessToken") }
         const profile = await fetchProfile(accessToken);
         console.log(profile);
         populate(profile);
@@ -38,7 +42,7 @@ export const UserProfile = () => {
     const params = new URLSearchParams();
     params.append("client_id", clientId);
     params.append("response_type", "code");
-    params.append("redirect_uri", "http://localhost:3000");
+    params.append("redirect_uri", "http://localhost:3000/userProfile");
     params.append("scope", "user-read-private user-read-email");
     params.append("code_challenge_method", "S256");
     params.append("code_challenge", challenge);
@@ -73,7 +77,7 @@ export const UserProfile = () => {
     params.append("client_id", clientId);
     params.append("grant_type", "authorization_code");
     params.append("code", code);
-    params.append("redirect_uri", "http://localhost:3000");
+    params.append("redirect_uri", "http://localhost:3000/userProfile");
     params.append("code_verifier", verifier);
 
     const result = await fetch("https://accounts.spotify.com/api/token", {
@@ -83,6 +87,8 @@ export const UserProfile = () => {
     });
 
     const { access_token } = await result.json();
+    console.log(access_token)
+    if (access_token) { localStorage.setItem("accessToken", access_token) }
     return access_token;
   }
 
