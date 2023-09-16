@@ -66,6 +66,7 @@ examples=[
     Example("I'm bored","tired"),
     Example("This is overwhelming","tired"),
     Example("I was exhausted","tired"),
+    Example("I'm sick","tired"),
 
     Example("Nothing much happened","neutral"),
     Example("The day went okay","neutral"),
@@ -82,12 +83,18 @@ examples=[
 ]
 
 inputs =[
-    # sample inputs here
-    "I thought today was a good day",
-    "I'm so happy things are doing incredible",
-    "I'm going to cry",
-    "I need a nap",
-    "Things are alright"
+    #user input will go here:
+
+    # sample inputs below
+    #"I thought today was a good day",
+    #"I'm so happy things are doing incredible",
+    #"I'm going to cry",
+    #"I need a nap",
+    #"Things are alright",
+    #"I thought today was a good day, and it was. I'm so happy! Things are going incredibly. However, I'm going to cry. I need a nap. But things are alright.",
+    #"Today was the best day ever! I'm so surprised with how well it went. I passed my math test with flying colours and I cried of excitement.",
+    "Today was a normal day, I woke up on time and ate the regular breakfast. Lunch was good and I talked with my friends. I am going to play baseball at the park."
+    #"My cat is sick so I had to go to the vet today."
 ]
 
 response = co.classify(
@@ -95,3 +102,4 @@ response = co.classify(
   examples=examples,
 )
 print(response)
+# instead, we will take out the prediction: "" part to classify the emotion, and maybe the confidence level?
