@@ -1,0 +1,3 @@
+for diary entry:
+may have to parse individual sentences and analyze sentiment for each, then one song for each sentence?
+alternatively one long entry, and then a lot of songs that fit the same profile
