@@ -1,6 +1,8 @@
 
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 const saveUserCredentials = (user) => {
   localStorage.setItem('userCredentials', JSON.stringify(user));
@@ -16,6 +18,7 @@ const checkLocalStorage = () => {
 };
 
 export const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
 
@@ -29,6 +32,7 @@ export const Login = () => {
 
     saveUserCredentials(user);
     checkLocalStorage();
+    navigate('/mainPage');
   };
 
   return (
