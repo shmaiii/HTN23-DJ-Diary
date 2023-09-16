@@ -2,8 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export const MainPage = () => {
-const navigate = useNavigate();
-  const handleLoginClick = () => {
+    const navigate = useNavigate();
+    
+    const handleLoginClick = () => {
     
     navigate('/journal');
   };
