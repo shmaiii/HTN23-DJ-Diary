@@ -1,4 +1,5 @@
 import cohere
+import re
 co = cohere.Client('HT8OEn0M36OmOLYY76E3Y7mxxwsWTs50HJEl4rQF')
 
 from cohere.responses.classify import Example
@@ -83,7 +84,7 @@ examples=[
 ]
 
 inputs =[
-    #user input will go here:
+    #user input form will go here:
 
     # sample inputs below
     #"I thought today was a good day",
@@ -101,5 +102,13 @@ response = co.classify(
   inputs=inputs,
   examples=examples,
 )
-print(response)
-# instead, we will take out the prediction: "" part to classify the emotion, and maybe the confidence level?
+#print(response)
+restr = str(response)
+print(restr[29:32])
+# instead, we will take out the prediction: "" part to classify the emotion
+# hap = happy
+# hyp = hyped
+# sad = sad
+# ang = angry
+# tir = tired
+# neu = neutral
