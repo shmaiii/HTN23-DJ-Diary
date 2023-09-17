@@ -11,7 +11,7 @@ export const Playlist_Rating = () => {
 	};
 
 	return (
-		<div className="w-fill h-screen bg-green-100 p-4">
+		<div className="w-screen h-screen bg-green-100 p-4">
 			<Header />
 		</div>
 	);
