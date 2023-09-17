@@ -16,7 +16,7 @@ var CLIENT_ID = "405cb5e4d9194595b89aba03e8e134ab"; // Your client id
 var CLIENT_SECRET = "a0bc4a1607584c8f87a10ffd7416510f"; // Your secret
 var REDIRECT_URI = "http://localhost:3001/callback";
 var accessToken =
-  'BQA0TvAxB_pCDkg4pOKmf5y1YLz1amjdWcGYf9Tx1Hyvxhrc1mPTrp7w43DSGSxI4SO6h35QGHLML34fEQ5D0rzXL3rGZxJcmtPS7Lah8TNz_uWrPJPIyqoAQeblqjeQbI5rG1BdgDPkhk82WCEqyYC4pbWkU84qP-xuVyPC9Jg1Wb1K1LABjweMD6Js3pkY9qENB3Hs1hmUUUJ5NLwiwjVV4SMVtBnGaQnwnBwXQuv7qgLqSfVVgYKjk9OsGco6HTBD9kjIyjDvO89Nl8i5VQ--sZKo7hYV_Xk';
+  'BQBKaeM-vnVn5CGk6w7rYFsSc0W5XYRQzW8aLpEHjBYQm6OozoWdYMdalVJOIX3yqVCSR7bZxE3g1yz3ey7NwKUWHbm-gvAQLWe-_qBQ5m5J3QJ6z797nHny92nAIOMm33qn2H96JHJQwEd7jjQEcp9zd7RIjmrhewAKvMjC0nPKXg_kgTmcCxODJa3qPtWACLH36teZh-q3XDl8TXNscI25rWSyUXVFW3Rf8tMIFjm3IzNYX1OS3bcjktvibOKnCj_x7a8aRCBIqwU3wYB_NMf2Gf4iMbOROlo';
 var userID;
 
 
@@ -95,6 +95,7 @@ app.get("/callback", (req, res) => {
     if (!error && response.statusCode === 200) {
       let access_token = body.access_token;
       console.log("Access Token:", access_token);
+      accessToken = access_token
       res.send("Success! Check console for the access token.");
     } else {
       res.send("Failed to retrieve access token. Check console for details.");
@@ -105,12 +106,15 @@ app.get("/callback", (req, res) => {
 
 
 app.post('api/setAccessToken', (req, res) => {
+  console.log('Setting access token')
   accessToken = req.body.accessToken
+  console.log(accessToken)
 })
 
 app.post("/api/createJournal/", async (req, res) => {
   try {
     // classify moods
+    console.log(req.body)
     const body = req.body.journal;
     const classificationResult = await classifyJournal(body);
     const label = classificationResult.prediction;
@@ -125,7 +129,11 @@ app.post("/api/createJournal/", async (req, res) => {
     );
     console.log(recTracks);
     const newPlaylist = await createPlaylist(recTracks, label)
-    res.send(newPlaylist);
+    const data = {
+      playlistUrl: newPlaylist,
+      mood: label
+    }
+    res.send(JSON.stringify(data));
   } catch (err) {
     console.log(err);
     res.status(500).json({

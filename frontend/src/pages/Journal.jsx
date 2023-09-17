@@ -1,7 +1,41 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import Box from '@mui/material/Box'
+import TextField from '@mui/material/TextField'
+import Button from '@mui/material/Button';
+import axios from 'axios'
 
 export const Journal = () => {
+
+  const [journalContent, setJournalContent] = useState('')
+  const navigate = useNavigate();
+  
+  const submitJournal = (event) => {
+    event.preventDefault();
+    console.log('Starting the request')
+    
+    const journal = {
+      journal: journalContent
+    }
+
+    var spotify;
+
+    axios
+    .post(`http://localhost:3001/api/createJournal`, journal)
+    .then(response => {
+      console.log(response)
+      spotify = {
+        url: response.data.playlistUrl,
+        mood: response.data.mood
+      }
+      navigate('/playlist_complete', { state: spotify });
+    })
+
+    
+    
+
+  }
   return (
     <div className="w-[1440px] h-[1024px] relative bg-green-100">
       <div className="flex-1 w-[1209px] h-[778px] left-[115px] top-[123px] absolute bg-white rounded-[10px] shadow border border-amber-500" />
@@ -11,14 +45,25 @@ export const Journal = () => {
         </span>
         <span style={{ color: 'amber', fontSize: '40px', fontWeight: 'bold', fontFamily: 'Raleway' }}>you</span>
         <span style={{ color: 'black', fontSize: '40px', fontWeight: 'bold', fontFamily: 'Raleway' }}> feeling?</span>
+        <Button variant="contained" onClick={submitJournal}>Submit</Button>
       </div>
       <div className="w-[696px] h-[46px] left-[180px] top-[167px] absolute text-black text-2xl font-normal font-['Raleway']">
         September 16, 2023
       </div>
-      <div className="w-[1048px] h-[385px] left-[195px] top-[354px] absolute bg-yellow-100 rounded-[10px] shadow" />
+       <div className="w-[1048px] h-[385px] left-[195px] top-[354px] absolute bg-yellow-100 rounded-[10px] shadow" />
       <div className="w-[696px] h-[46px] left-[223px] top-[388px] absolute text-black text-base font-normal font-['Raleway']">
-        Start typing here...
+      <TextField
+            id="multiline-flexible"
+            multiline
+            fullWidth
+            maxRows={10}
+            value={journalContent}
+            onChange={(e) => setJournalContent(e.target.value)}
+            placeholder="Start typing here"
+            className="bg-yellow-100"
+          />
       </div>
+      
       <div className="w-[696px] h-[46px] left-[180px] top-[293px] absolute text-black text-base font-normal font-['Raleway']">
         Minimum 100 words.
       </div>
