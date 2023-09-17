@@ -2,13 +2,14 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export const LaunchPage = () => {
-  const navigate = useNavigate();
+	const navigate = useNavigate();
 
-  const handleLoginClick = () => {
-    // Navigate to the '/login' route when the button is clicked
-    navigate('/userProfile');
-  };
+	const handleLoginClick = () => {
+		// Navigate to the '/login' route when the button is clicked
+		navigate('/userProfile');
+	};
 
+<<<<<<< HEAD
   return (
     <div class="h-screen bg-green-100">
   <div class="h-1/2 left-1/4 top-1/4 absolute text-amber-500 text-8xl font-bold font-['Raleway']">DJ Diary</div>
@@ -56,3 +57,12 @@ export const LaunchPage = () => {
     //  </div>
   );
 };
+=======
+	return (
+		<div>
+			<h1>Launch Page</h1>
+			<button onClick={handleLoginClick}>Login with Spotify</button>
+		</div>
+	);
+};
+>>>>>>> 2b6b7ed (finished mainPage frontend, applied hover animation to buttons)
