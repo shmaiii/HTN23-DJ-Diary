@@ -1,14 +1,18 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import dj from '../logo.svg';
->>>>>>>>> Temporary merge branch 2
+import axios from 'axios';
+import arrow from '../arrow.svg';
+import step1 from '../step1.svg';
+import step2 from '../step2.svg';
+import step3 from '../step3.svg';
 
 export const LaunchPage = () => {
 	const navigate = useNavigate();
 	const clientId = '405cb5e4d9194595b89aba03e8e134ab';
 	const params = new URLSearchParams(window.location.search);
 	const code = params.get('code');
-	const redirect_uri = 'http://localhost:3000/dashboard';
+	const redirect_uri = 'http://localhost:3000/mainPage';
 
 	const handleLoginClick = async () => {
 		// Navigate to the '/login' route when the button is clicked
@@ -107,56 +111,6 @@ export const LaunchPage = () => {
 		return access_token;
 	}
 
-<<<<<<<<< Temporary merge branch 1
-  return (
-    <div class="h-screen bg-green-100">
-  <div class="h-1/2 left-1/4 top-1/4 absolute text-amber-500 text-8xl font-bold font-['Raleway']">DJ Diary</div>
-  <div class="w-[696px] h-[46px] left-1/3 top-1/2 absolute text-black text-2xl font-normal font-['Montserrat']">Journal Your Day, Let AI Play Your Way.</div>
-  <img class="w-[271px] h-[231px] left-[937px] top-[313px] absolute" src="https://via.placeholder.com/271x231" />
-  <div class="w-[696px] h-[46px] left-1/4 top-1/2 absolute text-black text-2xl font-normal font-['Montserrat']">
-  <button onClick={handleLoginClick} class="left-[205px] top-[334px] bg-emerald-400 hover:drop-shadow-lg text-black py-2 px-4 rounded">Login with Spotify</button>
-  </div>
-  
-  <div class="w-[245px] h-[29px] left-[607px] top-[906px] absolute text-center text-black text-2xl font-normal font-['Montserrat']">See how it works</div>
-  <div class="w-1/8 h-[218px] left-[348px] top-[1014px] absolute bg-white rounded-[10px]"></div>
-  <div class="w-[800px] h-[218px] left-[348px] top-[1014px] absolute bg-white rounded-[10px]"></div>
-  <div class="w-[800px] h-[218px] left-[348px] top-[1358px] absolute bg-white rounded-[10px]"></div>
-  <div class="w-[800px] h-[218px] left-[348px] top-[1702px] absolute bg-white rounded-[10px]"></div>
-  <div class="w-[696px] h-[46px] left-[488px] top-[1077px] absolute text-amber-500 text-[40px] font-bold font-['Raleway']">Write a journal entry</div>
-  <div class="w-[696px] h-[46px] left-[488px] top-[1421px] absolute text-amber-500 text-[40px] font-bold font-['Raleway']">Customized playlist</div>
-  <div class="w-[696px] h-[46px] left-[488px] top-[1765px] absolute text-amber-500 text-[40px] font-bold font-['Raleway']">Save and review!</div>
-  <div class="w-[533px] h-[29px] left-[490px] top-[1129px] absolute text-amber-500 text-2xl font-normal font-['Montserrat']">Tell DJ Diary about your day or whatever’s on your mind!</div>
-  <div class="w-[533px] h-[29px] left-[490px] top-[1473px] absolute text-amber-500 text-2xl font-normal font-['Montserrat']">DJ Diary provides you with a playlist catered<br/>to your mood.</div>
-  <div class="w-[533px] h-[29px] left-[490px] top-[1817px] absolute text-amber-500 text-xl font-normal font-['Montserrat']">The playlist is automatically saved to your<br/>Spotify library and you can rate your enjoyment of it!</div>
-  <div class="w-[65px] h-[65px] left-[410px] top-[1082px] absolute">
-  </div>
-  <div class="w-[65px] h-[65px] left-[402px] top-[1775px] absolute">
-  </div>
-  <div class="w-[65px] h-[65px] left-[402px] top-[1427px] absolute">
-  </div>
-  <div class="w-[60px] h-[56.47px] left-[830px] top-[1752px] absolute">
-  </div>
-  <div class="w-[52.13px] h-[52px] left-[886px] top-[1415px] absolute">
-  </div>
-  <div class="w-[45.97px] h-[46.99px] left-[892px] top-[1077px] absolute">
-  </div>
-</div>
-
-    
-    // <div class="relative h-32 w-32 ...">
-    //   <div class="w-[1440px] h-[1024px] relative bg-green-100"></div>
-      
-    //    <div class="absolute inset-x-50 top-16 h-16 ...">
-    //    <button onClick={handleLoginClick}>Login with Spotify</button>
-        
-    //      </div>
-    //      <h1>Launch Page</h1>
-        
-    //  </div>
-  );
-};
-
-=========
 	return (
 		<div className="h-screen w-fill bg-green-100 overflow-auto relative">
 			{/* Absolute positioned DJ image */}
@@ -170,23 +124,38 @@ export const LaunchPage = () => {
 				Journal Your Day, Let AI Play Your Way.
 			</div>
 			<button
-				className="ml-40 mt-8 px-6 transform hover:scale-110 hover:duration-150 ease-in-out ml-20 px-14 py-2 text-black text-xl font-medium font-['Raleway'] bg-emerald-400 rounded-[5px] border px-3 border-emerald-400 py-1"
-				onClick={() => navigate('/userProfile')}
+				className="ml-40 mt-8 px-10 transform hover:scale-110 hover:duration-150 ease-in-out ml-20 px-14 py-3 text-black text-xl font-medium font-['Raleway'] bg-emerald-400 rounded-[5px] border px-3 border-emerald-400 py-1"
+				onClick={handleLoginClick}
 			>
 				Login with Spotify
 			</button>
+
+			<div className="animate-bounce mt-40 flex justify-center items-center">
+				<img src={arrow} alt="down Arrow for tutorial" />
+			</div>
+			<div className="text-center text-black text-sm font-normal font-['Montserrat']">
+				<p>Scroll to see how it works</p>
+			</div>
+
+			<div className="flex justify-center items-center mt-40">
+				<img src={step1} alt="Step 1 Info" />
+			</div>
+
+			<div className="flex justify-center items-center mt-10">
+				<img src={arrow} alt="arrow" />
+			</div>
+
+			<div className="flex justify-center items-center mt-10">
+				<img src={step2} alt="Step 2 Info" />
+			</div>
+
+			<div className="flex justify-center items-center mt-10">
+				<img src={arrow} alt="arrow" />
+			</div>
+
+			<div className="flex justify-center items-center mt-10 mb-20">
+				<img src={step3} alt="Step 3 Info" />
+			</div>
 		</div>
 	);
 };
-
-// <div class="relative h-32 w-32 ...">
-//   <div class="w-[1440px] h-[1024px] relative bg-green-100"></div>
-
-//    <div class="absolute inset-x-50 top-16 h-16 ...">
-//    <button onClick={handleLoginClick}>Login with Spotify</button>
-
-//      </div>
-//      <h1>Launch Page</h1>
-
-//  </div>
->>>>>>>>> Temporary merge branch 2
