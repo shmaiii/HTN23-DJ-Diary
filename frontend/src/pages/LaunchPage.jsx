@@ -8,6 +8,7 @@ import step2 from '../step2.svg';
 import step3 from '../step3.svg';
 
 export const LaunchPage = () => {
+
 	const navigate = useNavigate();
 	const clientId = '405cb5e4d9194595b89aba03e8e134ab';
 	const params = new URLSearchParams(window.location.search);
