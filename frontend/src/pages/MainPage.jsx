@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Header } from '../components/Header';
 import Taylor from '../Taylor.svg';
 import Conan from '../Conan.svg';
+import dj_text from '../DJ_Text.svg';
 
 export const MainPage = () => {
 	const navigate = useNavigate();
@@ -34,9 +35,12 @@ export const MainPage = () => {
 					>
 						Start
 					</button>
-
-					{/* text bubble image*/}
 				</div>
+				<img
+					className="w-60 h-60 right-12 top-60 absolute"
+					src={dj_text}
+					alt="DJ encouraging your to journal"
+				/>
 			</div>
 
 			<div className="pl-20 pt-14 pb-6 text-black text-2xl font-semibold font-['Raleway']">
