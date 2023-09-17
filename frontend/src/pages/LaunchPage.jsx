@@ -12,9 +12,12 @@ export const LaunchPage = () => {
   return (
     <div class="h-screen bg-green-100">
   <div class="h-1/2 left-1/4 top-1/4 absolute text-amber-500 text-8xl font-bold font-['Raleway']">DJ Diary</div>
-  <div class="w-[696px] h-[46px] left-1/4 top-1/2 absolute text-black text-2xl font-normal font-['Montserrat']">Journal Your Day, Let AI Play Your Way.</div>
+  <div class="w-[696px] h-[46px] left-1/3 top-1/2 absolute text-black text-2xl font-normal font-['Montserrat']">Journal Your Day, Let AI Play Your Way.</div>
   <img class="w-[271px] h-[231px] left-[937px] top-[313px] absolute" src="https://via.placeholder.com/271x231" />
+  <div class="w-[696px] h-[46px] left-1/4 top-1/2 absolute text-black text-2xl font-normal font-['Montserrat']">
   <button onClick={handleLoginClick} class="left-[205px] top-[334px] bg-emerald-400 hover:drop-shadow-lg text-black py-2 px-4 rounded">Login with Spotify</button>
+  </div>
+  
   <div class="w-[245px] h-[29px] left-[607px] top-[906px] absolute text-center text-black text-2xl font-normal font-['Montserrat']">See how it works</div>
   <div class="w-1/8 h-[218px] left-[348px] top-[1014px] absolute bg-white rounded-[10px]"></div>
   <div class="w-[800px] h-[218px] left-[348px] top-[1014px] absolute bg-white rounded-[10px]"></div>
