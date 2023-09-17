@@ -4,6 +4,7 @@ import { Header } from '../components/Header';
 import Taylor from '../Taylor.svg';
 import Conan from '../Conan.svg';
 import dj_text from '../DJ_Text.svg';
+import { Button } from '@mui/material';
 
 export const MainPage = () => {
 	const navigate = useNavigate();
