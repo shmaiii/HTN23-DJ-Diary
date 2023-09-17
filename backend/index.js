@@ -16,7 +16,7 @@ var CLIENT_ID = "405cb5e4d9194595b89aba03e8e134ab"; // Your client id
 var CLIENT_SECRET = "a0bc4a1607584c8f87a10ffd7416510f"; // Your secret
 var REDIRECT_URI = "http://localhost:3001/callback";
 var accessToken =
-  'BQBKaeM-vnVn5CGk6w7rYFsSc0W5XYRQzW8aLpEHjBYQm6OozoWdYMdalVJOIX3yqVCSR7bZxE3g1yz3ey7NwKUWHbm-gvAQLWe-_qBQ5m5J3QJ6z797nHny92nAIOMm33qn2H96JHJQwEd7jjQEcp9zd7RIjmrhewAKvMjC0nPKXg_kgTmcCxODJa3qPtWACLH36teZh-q3XDl8TXNscI25rWSyUXVFW3Rf8tMIFjm3IzNYX1OS3bcjktvibOKnCj_x7a8aRCBIqwU3wYB_NMf2Gf4iMbOROlo';
+  'BQCtXjKVSsmGRhxTJkJ8XFYg-tH7Fdmrd9CsBIzYwDdrgeog5fE-Dt_vThwO5va0NQysw2JYDGrrD1ZKmXCP4PUhHaUqIUENEIRthcmuuCvuNFmKpTi_CugjzKCj0GnDGsMPQ9BqgDhGWFXQepTcjaFkJeOQqjPYgJn0zjzjy5dmQRqu_uaa12C6kN0cEZDdg8z1Dcb4p-4Ke9vzJ8_jNdXRcfYZCUCRODj7zt3bYq8nD_JWgd6G3W18fAksaaLXL2EeUhaZ3Tddg0eznMit9bli9bONOfkPwlY';
 var userID;
 
 
@@ -133,6 +133,7 @@ app.post("/api/createJournal/", async (req, res) => {
       playlistUrl: newPlaylist,
       mood: label
     }
+
     res.send(JSON.stringify(data));
   } catch (err) {
     console.log(err);
