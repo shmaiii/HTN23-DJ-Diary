@@ -8,7 +8,7 @@ export const LaunchPage = () => {
   const clientId = "405cb5e4d9194595b89aba03e8e134ab";
   const params = new URLSearchParams(window.location.search);
   const code = params.get("code");
-  const redirect_uri = "http://localhost:3000/dashboard"
+  const redirect_uri = "http://localhost:3000/mainPage"
 
   const handleLoginClick = async () => {
     // Navigate to the '/login' route when the button is clicked
@@ -115,7 +115,7 @@ export const LaunchPage = () => {
 			</div>
 			<button
 				className="ml-40 mt-8 px-6 transform hover:scale-110 hover:duration-150 ease-in-out ml-20 px-14 py-2 text-black text-xl font-medium font-['Raleway'] bg-emerald-400 rounded-[5px] border px-3 border-emerald-400 py-1"
-				onClick={() => navigate('/userProfile')}
+				onClick={handleLoginClick}
 			>
 				Login with Spotify
 			</button>
