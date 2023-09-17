@@ -7,10 +7,9 @@ export const UserProfile = () => {
   const [displayName, setDisplayName] = useState("");
 
   const clientId = "405cb5e4d9194595b89aba03e8e134ab";
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
+  const params = new URLSearchParams(window.location.search);
     const code = params.get("code");
+  useEffect(() => {
     authenticate(code);
   }, []);
 
@@ -34,6 +33,7 @@ export const UserProfile = () => {
   }
 
   async function redirectToAuthCodeFlow(clientId) {
+    console.log('calling redirect')
     const verifier = generateCodeVerifier(128);
     const challenge = await generateCodeChallenge(verifier);
 
@@ -43,10 +43,10 @@ export const UserProfile = () => {
     params.append("client_id", clientId);
     params.append("response_type", "code");
     params.append("redirect_uri", "http://localhost:3000/userProfile");
-    params.append("scope", "user-read-private user-read-email");
+    params.append("scope", "user-read-private user-read-email user-library-read user-top-read user-read-recently-played");
     params.append("code_challenge_method", "S256");
     params.append("code_challenge", challenge);
-
+    console.log(`https://accounts.spotify.com/authorize?${params.toString()}`)
     window.location.href = `https://accounts.spotify.com/authorize?${params.toString()}`;
   }
 
@@ -123,3 +123,4 @@ export const UserProfile = () => {
     </div>
   );
 };
+
