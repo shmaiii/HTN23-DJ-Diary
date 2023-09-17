@@ -30,7 +30,7 @@ export const MainPage = () => {
 			<div>
 				<div className="flex justify-between">
 					<button
-						className="transform hover:scale-110 hover:duration-150 ease-in-out ml-20 px-14 py-2 text-black text-xl font-medium font-['Raleway'] bg-emerald-400 rounded-[5px] border px-3 border-emerald-400 py-1"
+						className="transform hover:scale-110 hover:duration-150 ease-in-out ml-20 px-16 py-2 text-black text-xl font-medium font-['Raleway'] bg-emerald-400 rounded-[5px] border px-3 border-emerald-400 py-1"
 						onClick={() => navigate('/journal')}
 					>
 						Start
