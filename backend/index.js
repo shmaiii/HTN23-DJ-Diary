@@ -33,20 +33,20 @@ var authOptions = {
 };
 
 
-//get userId
-var options = {
-  url: "https://api.spotify.com/v1/me",
-  headers: {
-    Authorization:
-      `Bearer ${accessToken}`
-  },
-  json: true,
-};
+// //get userId
+// var options = {
+//   url: "https://api.spotify.com/v1/me",
+//   headers: {
+//     Authorization:
+//       `Bearer ${accessToken}`
+//   },
+//   json: true,
+// };
 
-request.get(options, function (error, response, body) {
-  userID = body.id;
-  console.log(userID)
-});
+// request.get(options, function (error, response, body) {
+//   userID = body.id;
+//   console.log(userID)
+// });
 
 // APIS
 
@@ -60,6 +60,7 @@ var corsOption = {
 };
 
 app.get("/api/login", cors(corsOption), (request, response) => {
+  
   let scope =
     "user-read-private user-read-email user-library-read user-top-read user-read-recently-played playlist-modify-public playlist-modify-private";
   response.redirect(
@@ -102,6 +103,22 @@ app.get("/callback", (req, res) => {
       console.error(body);
     }
   });
+
+  //get userId
+var options = {
+  url: "https://api.spotify.com/v1/me",
+  headers: {
+    Authorization:
+      `Bearer ${accessToken}`
+  },
+  json: true,
+};
+
+request.get(options, function (error, response, body) {
+  userID = body.id;
+  console.log(userID)
+});
+
 });
 
 
