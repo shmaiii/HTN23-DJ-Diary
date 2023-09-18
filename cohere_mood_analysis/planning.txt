@@ -1,3 +1,10 @@
+This was our first time using the Cohere API in a project, and it was definitely a great choice because of how renowned Cohere is for its advanced NLP technology and language models. Cohere is also known for its sentiment analysis capabilities, and we knew that leveraging such a powerful tool for this would result in a more personalized Spotify playlist recommendation. The Cohere API documentation was very helpful and easy to integrate. It would also be useful for potential expansion and growth, due to the scalability that Cohere’s infrastructure offers.
+-	Used Cohere’s sentiment analysis to create a classifier from a generative model
+-	Stored training data consisting of labelled example prompts.(I only got 4 hours of sleep = Tired)
+-	We take in the user input (journal entry)
+-	and use the Classify endpoint to make a model predicting what the sentiment
+
+
 for diary entry:
 may have to parse individual sentences and analyze sentiment for each, then one song for each sentence?
 (yes!) --> alternatively, one long entry, and then a lot of songs that fit the same profile
