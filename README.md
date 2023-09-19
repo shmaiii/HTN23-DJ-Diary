@@ -4,6 +4,10 @@ DJ Diary is an AI/ML-integrated web app that automatically curates the perfect p
 
 _Journal Your Day, Let AI Play Your Way._
 
+
+## Video Demo
+https://github.com/shmaiii/htn23-djmood/assets/119923836/28c27d08-e49e-467d-8e14-c76a8b8754d9
+
 ## How we built it
 Languages: JavaScript, Python, HTML/CSS
 
