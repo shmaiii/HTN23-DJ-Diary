@@ -9,9 +9,8 @@ _Journal Your Day, Let AI Play Your Way._
 https://github.com/shmaiii/htn23-djmood/assets/119923836/28c27d08-e49e-467d-8e14-c76a8b8754d9
 
 ## How we built it
-Languages: JavaScript, Python, HTML/CSS
 
-Tools/Frameworks: Figma, Cohere API, React, Tailwind CSS 
+Tools/Frameworks: React, Express, Spotify API, Cohere API, Tailwind CSS, Figma 
 
 ## The team :))
 Design:
